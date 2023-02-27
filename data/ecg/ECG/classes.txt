@@ -1,0 +1,17 @@
+1 001.Atrial_Fibrillation
+2 002.Atrial_Flutter
+3 003.Atrial_Premature_Beat
+4 004.Bigeminy
+5 005.Fusion
+6 006.Idioventricular_Rhythm
+7 007.Left_Bundle_Branch_Block
+8 008.Noise
+9 009.Normal_Beat
+10 010.Pacemaker_Rhythm
+11 011.Premature_Ventricular_Contraction
+12 012.Right_Bundle_Branch_Block
+13 013.Succinate_Dehydrogenase_Iron-Sulfur_Subunit
+14 014.Supraventricular_Tachyarrhythmias
+15 015.Trigeminy
+16 016.Ventricular_Flutter
+17 017.Wolff-Parkinson-White
