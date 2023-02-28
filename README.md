@@ -6,6 +6,7 @@ Progetto di Tesi presso l'Università "Parthenope" di Napoli.
 
 Classificatore originale --> https://arxiv.org/abs/2009.06138
 
+![Screenshot 2023-02-28 162627](https://user-images.githubusercontent.com/94131849/221899621-8e4fcb88-648a-4679-b24e-df3323a46f88.png)
 
 
 ## Abstract
