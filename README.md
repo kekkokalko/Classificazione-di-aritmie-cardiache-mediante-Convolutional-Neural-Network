@@ -15,8 +15,9 @@ Le malattie cardiovascolari sono una delle principali malattie che minacciano la
 ## Model Structure
 ![Structure Figure](fig/zfig_structure.jpg)
 
-SCOUTER is built on top of the recently-emerged slot attention, which offers an object-centric approach for image representation. Based on this approach, we propose an explainable slot attention (xSlot) module. The output from the xSlot module is directly used as the confidence values for each category and thus commonly used fully-connected (FC) layer-based classifiers are no longer necessary. The whole network, including the backbone, is trained with the SCOUTER loss, which provides control over the size of explanatory regions and switching between positive and negative explanations.
-
+S.C.O.U.T.E.R. (Slot-based COnfigUrable and Transparent classifiER) è un classificatore di immagini che è in grado di emettere contemporaneamente, sulla base delle features in input, sia la decisione presa, cioè la classe associata all’immagine, sia la spiegazione visiva del perché è stata rilasciata quella classe. Come è stato preannunciato nell’introduzione, esistono due tipologie di SCOUTER.
+Il 1° è SCOUTER+, usato per trovare la motivazione del perché quell’immagine appartenga a quella specifica categoria. 
+Il 2° è SCOUTER-, usato per trovare la motivazione per la quale quell’immagine NON fa parte di quella categoria. 
 
 ##### Pre-training
 
