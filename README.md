@@ -14,177 +14,8 @@ Le malattie cardiovascolari sono una delle principali malattie che minacciano la
 
 SCOUTER is built on top of the recently-emerged slot attention, which offers an object-centric approach for image representation. Based on this approach, we propose an explainable slot attention (xSlot) module. The output from the xSlot module is directly used as the confidence values for each category and thus commonly used fully-connected (FC) layer-based classifiers are no longer necessary. The whole network, including the backbone, is trained with the SCOUTER loss, which provides control over the size of explanatory regions and switching between positive and negative explanations.
 
-## Usage
 
-###### Enable distributed training (if desired)
-
-```bash
-python -m torch.distributed.launch --nproc_per_node=4 --use_env train.py --world_size 4
-```
-
-
-### Imagenet
-
-##### Training for Imagenet dataset (Base Model)
-
-```bash
-python train.py --dataset ImageNet --model resnest26d --batch_size 70 --epochs 20 \
---num_classes 10 --use_slot false \
---vis false --channel 2048 --freeze_layers 0 \
---dataset_dir ../data/imagenet/ILSVRC/Data/CLS-LOC/
-```
-
-##### Positive Scouter for Imagenet dataset
-
-```bash
-python train.py --dataset ImageNet --model resnest26d --batch_size 70 --epochs 20 \
---num_classes 10 --use_slot true --use_pre false --loss_status 1 --slots_per_class 1 \
---power 2 --to_k_layer 3 --lambda_value 1 --vis false --channel 2048 --freeze_layers 0 \
---dataset_dir ../data/imagenet/ILSVRC/Data/CLS-LOC/
-```
-
-##### Negative Scouter for Imagenet dataset
-
-```bash
-python train.py --dataset ImageNet --model resnest26d --batch_size 70 --epochs 20 \
---num_classes 10 --use_slot true --use_pre false --loss_status -1 --slots_per_class 1 \
---power 2 --to_k_layer 3 --lambda_value 1 --vis false --channel 2048 --freeze_layers 0 \
---dataset_dir ../data/imagenet/ILSVRC/Data/CLS-LOC/
-```
-
-##### Visualization of Positive Scouter for Imagenet dataset
-
-```bash
-python test.py --dataset ImageNet --model resnest26d --batch_size 70 --epochs 20 \
---num_classes 10 --use_slot true --use_pre false --loss_status 1 --slots_per_class 1 \
---power 2 --to_k_layer 3 --lambda_value 1 --vis true --channel 2048 --freeze_layers 0 \
---dataset_dir ../data/imagenet/ILSVRC/Data/CLS-LOC/
-```
-
-##### Visualization of Negative Scouter for Imagenet dataset
-
-```bash
-python test.py --dataset ImageNet --model resnest26d --batch_size 70 --epochs 20 \
---num_classes 10 --use_slot true --use_pre false --loss_status -1 --slots_per_class 1 \
---power 2 --to_k_layer 3 --lambda_value 1 --vis true --channel 2048 --freeze_layers 0 \
---dataset_dir ../data/imagenet/ILSVRC/Data/CLS-LOC/
-```
-
-##### Visualization using torchcam for Imagenet dataset
-
-```bash
-python torchcam_vis.py --dataset ImageNet --model resnest26d --batch_size 70 \
---num_classes 10 --grad true --use_pre true \
---dataset_dir ../data/imagenet/ILSVRC/Data/CLS-LOC/ \
---grad_min_level 0
-```
-
-
-### MNIST Dataset
-
-##### Pre-training for MNIST dataset
-
-```bash
-python train.py --dataset MNIST --model resnet18 --batch_size 64 --epochs 10 \
---num_classes 10 --use_slot false --vis false --aug false
-```
-
-##### Positive Scouter for MNIST dataset
-
-```bash
-python train.py --dataset MNIST --model resnet18 --batch_size 64 --epochs 10 \
---num_classes 10 --use_slot true --use_pre true --loss_status 1 --slots_per_class 1 \
---power 1 --to_k_layer 1 --lambda_value 1. --vis false --channel 512 --aug false
-```
-
-##### Negative Scouter for MNIST dataset
-
-```bash
-python train.py --dataset MNIST --model resnet18 --batch_size 64 --epochs 10 \
---num_classes 10 --use_slot true --use_pre false --loss_status -1 --slots_per_class 2 \
---power 2 --to_k_layer 1 --lambda_value 1.5 --vis false --channel 512 --aug false --freeze_layers 3
-```
-
-##### Visualization of Positive Scouter for MNIST dataset
-
-```bash
-python test.py --dataset MNIST --model resnet18 --batch_size 64 --epochs 10 \
---num_classes 10 --use_slot true --use_pre true --loss_status 1 --slots_per_class 1 \
---power 1 --to_k_layer 1 --lambda_value 1. --vis true --channel 512 --aug false
-```
-
-##### Visualization of Negative Scouter for MNIST dataset
-
-```bash
-python test.py --dataset MNIST --model resnet18 --batch_size 64 --epochs 10 \
---num_classes 10 --use_slot true --use_pre false --loss_status -1 --slots_per_class 2 \
---power 2 --to_k_layer 1 --lambda_value 1.5 --vis true --channel 512 --aug false --freeze_layers 3
-```
-
-##### Visualization using torchcam for MNIST dataset
-
-```bash
-python torchcam_vis.py --dataset MNIST --model resnet18 --batch_size 64 \
---num_classes 10 --grad true --use_pre true
-```
-
-### Con-Text Dataset
-
-##### Pre-training for ConText dataset
-
-```bash
-python train.py --dataset ConText --model resnest26d --batch_size 200 --epochs 100 \
---num_classes 30 --use_slot false --vis false \
---dataset_dir ../data/con-text/JPEGImages/
-```
-
-##### Positive Scouter for ConText dataset
-
-```bash
-python train.py --dataset ConText --model resnest26d --batch_size 200 --epochs 100 \
---num_classes 30 --use_slot true --use_pre true --loss_status 1 --slots_per_class 3 \
---power 2 --to_k_layer 3 --lambda_value .2 --vis false --channel 2048 \
---dataset_dir ../data/con-text/JPEGImages/
-```
-
-##### Negative Scouter for ConText dataset
-
-```bash
-python train.py --dataset ConText --model resnest26d --batch_size 200 --epochs 100 \
---num_classes 30 --use_slot true --use_pre true --loss_status -1 --slots_per_class 3 \
---power 2 --to_k_layer 3 --lambda_value 1. --vis false --channel 2048 \
---dataset_dir ../data/con-text/JPEGImages/
-```
-
-##### Visualization of Positive Scouter for ConText dataset
-
-```bash
-python test.py --dataset ConText --model resnest26d --batch_size 200 --epochs 100 \
---num_classes 30 --use_slot true --use_pre true --loss_status 1 --slots_per_class 3 \
---power 2 --to_k_layer 3 --lambda_value 1. --vis true --channel 2048 \
---dataset_dir ../data/con-text/JPEGImages/
-```
-
-##### Visualization of Negative Scouter for ConText dataset
-
-```bash
-python test.py --dataset ConText --model resnest26d --batch_size 200 --epochs 100 \
---num_classes 30 --use_slot true --use_pre true --loss_status -1 --slots_per_class 3 \
---power 2 --to_k_layer 3 --lambda_value 1. --vis true --channel 2048 \
---dataset_dir ../data/con-text/JPEGImages/
-```
-
-##### Visualization using torchcam for ConText dataset
-
-```bash
-python torchcam_vis.py --dataset ConText --model resnest26d --batch_size 200 \
---num_classes 30 --grad true --use_pre true \
---dataset_dir ../data/con-text/JPEGImages/
-```
-
-### CUB-200 Dataset
-
-##### Pre-training for CUB-200 dataset
+##### Pre-training
 
 ```bash
 python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
@@ -192,7 +23,7 @@ python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150
 --dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
 ```
 
-##### Positive Scouter for CUB-200 dataset
+##### Training per Positive Scouter
 
 ```bash
 python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
@@ -201,7 +32,7 @@ python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150
 --dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
 ```
 
-##### Negative Scouter for CUB-200 dataset
+##### Training per Negative Scouter
 
 ```bash
 python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
@@ -210,7 +41,7 @@ python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150
 --dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
 ```
 
-##### Visualization of Positive Scouter for CUB-200 dataset
+##### Test Positive Scouter
 
 ```bash
 python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
@@ -219,7 +50,7 @@ python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 
 --dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
 ```
 
-##### Visualization of Negative Scouter for CUB-200 dataset
+##### Test Negative Scouter
 
 ```bash
 python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
@@ -228,17 +59,6 @@ python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 
 --dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
 ```
 
-##### Visualization using torchcam for CUB-200 dataset
-
-```bash
-python torchcam_vis.py --dataset CUB200 --model resnest50d --batch_size 150 \
---num_classes 25 --grad true --use_pre true \
---dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
-```
-
-## Acknowledgements
-
-This work was supported by Council for Science, Technology and Innovation (CSTI), cross-ministerial Strategic Innovation Promotion Program (SIP), "Innovative AI Hospital System" (Funding Agency: National Institute of Biomedical Innovation, Health and Nutrition (NIBIOHN)).
 
 ## Publication
 
