@@ -16,8 +16,8 @@ Le malattie cardiovascolari sono una delle principali malattie che minacciano la
 ![Structure Figure](fig/zfig_structure.jpg)
 
 S.C.O.U.T.E.R. (Slot-based COnfigUrable and Transparent classifiER) è un classificatore di immagini che è in grado di emettere contemporaneamente, sulla base delle features in input, sia la decisione presa, cioè la classe associata all’immagine, sia la spiegazione visiva del perché è stata rilasciata quella classe. Come è stato preannunciato nell’introduzione, esistono due tipologie di SCOUTER.
-Il 1° è SCOUTER+, usato per trovare la motivazione del perché quell’immagine appartenga a quella specifica categoria. 
-Il 2° è SCOUTER-, usato per trovare la motivazione per la quale quell’immagine NON fa parte di quella categoria. 
+Il 1° è SCOUTER+, usato per trovare la motivazione del perché quell’immagine appartiene a quella specifica categoria. 
+Il 2° è SCOUTER-, usato per trovare la motivazione per la quale quell’immagine NON appartiene a quella categoria. 
 
 ##### Pre-training
 
