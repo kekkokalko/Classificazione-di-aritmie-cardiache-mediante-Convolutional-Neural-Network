@@ -1,7 +1,8 @@
 
 
-# SCOUTER: Slot Attention-based Classifier for Explainable Image Recognition 
-[PDF](https://arxiv.org/abs/2009.06138)
+# Classificazione-di-aritmie-cardiache-mediante-Convolutional-Neural-Network
+
+Classificatore originale --> https://arxiv.org/abs/2009.06138
 
 ![Figure](fig/zfig_story.jpg)
 
