@@ -2,6 +2,8 @@
 
 # Classificazione-di-aritmie-cardiache-mediante-Convolutional-Neural-Network
 
+Progetto di Tesi presso l'Università "Parthenope" di Napoli.
+
 Classificatore originale --> https://arxiv.org/abs/2009.06138
 
 ![Figure](fig/zfig_story.jpg)
@@ -60,15 +62,9 @@ python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 
 ```
 
 
-## Publication
 
-If you want to use this work, please consider citing the following paper.
-```
-@inproceedings{li2021scouter,
- author = {Liangzhi Li and Bowen Wang and Manisha Verma and Yuta Nakashima and Ryo Kawasaki and Hajime Nagahara},
- booktitle = {IEEE International Conference on Computer Vision (ICCV)},
- pages = {},
- title = {SCOUTER: Slot Attention-based Classifier for Explainable Image Recognition},
- year = {2021}
-}
-```
+
+Anno Accademico 2021/2022
+
+
+
