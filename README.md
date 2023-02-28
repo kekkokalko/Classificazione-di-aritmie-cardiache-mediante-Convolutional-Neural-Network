@@ -25,7 +25,7 @@ Il 2° è SCOUTER-, usato per trovare la motivazione per la quale quell’immagi
 ```bash
 python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
 --num_classes 25 --use_slot false --vis false --channel 2048 \
---dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
+--dataset_dir data/ecg/ECG
 ```
 
 ##### Training per Positive Scouter
@@ -34,7 +34,7 @@ python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150
 python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
 --num_classes 25 --use_slot true --use_pre true --loss_status 1 --slots_per_class 5 \
 --power 2 --to_k_layer 3 --lambda_value 10 --vis false --channel 2048 --freeze_layers 2 \
---dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
+--dataset_dir data/ecg/ECG
 ```
 
 ##### Training per Negative Scouter
@@ -43,7 +43,7 @@ python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150
 python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
 --num_classes 25 --use_slot true --use_pre true --loss_status -1 --slots_per_class 3 \
 --power 2 --to_k_layer 3 --lambda_value 1. --vis false --channel 2048 --freeze_layers 2 \
---dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
+--dataset_dir data/ecg/ECG
 ```
 
 ##### Test Positive Scouter
@@ -52,7 +52,7 @@ python train.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150
 python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
 --num_classes 25 --use_slot true --use_pre true --loss_status 1 --slots_per_class 5 \
 --power 2 --to_k_layer 3 --lambda_value 10 --vis true --channel 2048 --freeze_layers 2 \
---dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
+--dataset_dir data/ecg/ECG
 ```
 
 ##### Test Negative Scouter
@@ -61,7 +61,7 @@ python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 
 python test.py --dataset CUB200 --model resnest50d --batch_size 64 --epochs 150 \
 --num_classes 25 --use_slot true --use_pre true --loss_status -1 --slots_per_class 3 \
 --power 2 --to_k_layer 3 --lambda_value 1. --vis true --channel 2048 --freeze_layers 2 \
---dataset_dir ../data/bird_200/CUB_200_2011/CUB_200_2011/
+--dataset_dir data/ecg/ECG
 ```
 
 
