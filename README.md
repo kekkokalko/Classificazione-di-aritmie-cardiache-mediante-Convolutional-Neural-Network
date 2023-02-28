@@ -6,7 +6,7 @@ Progetto di Tesi presso l'Università "Parthenope" di Napoli.
 
 Classificatore originale --> https://arxiv.org/abs/2009.06138
 
-![Figure](fig/zfig_story.jpg)
+
 
 ## Abstract
 Le malattie cardiovascolari sono una delle principali malattie che minacciano la vita umana. Secondo i rapporti dell'organizzazione mondiale della sanità, oggi la mortalità per malattie cardiovascolari (CVD) è al primo posto tra tutte le cause di morte. Oltre 17,7 milioni di persone sono morte per CVD e più del 75% di questi decessi si è verificato nei paesi in via di sviluppo. Inoltre, la mortalità per malattie cardiovascolari (CVD) è ancora in crescita. Pertanto, il monitoraggio regolare del ritmo cardiaco è diventato una questione sempre più importante e necessaria per gestire e prevenire le CVD. Siccome l'Intelligenza Artificiale spiegabile (EAI), negli ultimi anni, ha fatto passi da gigante anche nel settore medico, si è cercato di produrre un software in grado di permettere ai cardiologi, primari e dottori del settore di poter, dato l’ECG di un paziente, riconoscere tutte le eventuali problematiche cardiache di cui è soggetto quest’ultimo. Tale software ha, quindi, come obiettivo, quello di automatizzare e velocizzare profondamente l’operazione di analisi, effettuata dai medici, degli ECG dei pazienti, in maniera tale da non far durare questa fase ore o addirittura giorni.
